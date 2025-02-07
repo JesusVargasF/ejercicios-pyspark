@@ -1,39 +1,33 @@
+# **PASOS PARA REALIZAR UN CONTEO DE PALABRAS EN UN LIBRO CON APACHE HADOOP**
+![Apache Hadoop Logo]([https://spark.apache.org/images/spark-logo-trademark.png](https://spark.apache.org/images/hadoop.jpg))
+### **Estos pasos se realizaron para el ejercicio en la sesion entonces ya no son necesarios de ejecutar pero se añaden como referencia:**
 
-##### 1. pull docker image
+##### 1. Obtener la imagen de Docker con hadoop usando el comando pull docker image
 
 ```
 sudo docker pull uracilo/hadoop
 ```
 
-##### 2. Clonar repositorio github
+##### 2. Clonar repositorio github.
 
 ```
 git clone https://github.com/uracilo/hadoop.git
 ```
 
-##### 3. Crear red para el cluster de hadoop
+##### 3. Creamos la red para el cluster que usaremos de hadoop.
 
 ```
 sudo docker network create --driver=bridge hadoop
 ```
 
-##### 4. Inicializar el cluster
+##### 4. Iniciamos el cluster con 2  esclavos y un maestro. Entraremos usando al contenedor master.
 
 ```
 cd hadoop
 sudo ./start-container.sh
 ```
-
-**output:**
-
-```
-start hadoop-master container...
-start hadoop-slave1 container...
-start hadoop-slave2 container...
-root@hadoop-master:~# 
-```
-- Iniciar con 2  esclavos y un maestro
-- Entraremos al contenedor master
+***
+## **A partir de aqui se muestran los pasos que se realizaron para la practica de tarea:**
 
 ##### 5. Iniciar hadoop
 
