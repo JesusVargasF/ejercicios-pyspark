@@ -27,7 +27,7 @@ cd hadoop
 sudo ./start-container.sh
 ```
 ***
-## **A partir de aqui se muestran los pasos que se realizaron para la practica de tarea:**
+### **A partir de aqui se muestran los pasos que se realizaron para la practica de tarea:**
 
 ##### 5. Iniciar hadoop
 
