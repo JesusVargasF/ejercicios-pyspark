@@ -1,5 +1,5 @@
 # **PASOS PARA REALIZAR UN CONTEO DE PALABRAS EN UN LIBRO CON APACHE HADOOP**
-![Apache Hadoop Logo]([https://spark.apache.org/images/spark-logo-trademark.png](https://spark.apache.org/images/hadoop.jpg))
+![Apache Hadoop Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Hadoop_logo.svg/300px-Hadoop_logo.svg.png)
 ### **Estos pasos se realizaron para el ejercicio en la sesion entonces ya no son necesarios de ejecutar pero se añaden como referencia:**
 
 ##### 1. Obtener la imagen de Docker con hadoop usando el comando pull docker image
