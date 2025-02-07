@@ -4,7 +4,7 @@
 
 Este repositorio contiene los ejercicios realizados durante la **Academia de Data Engineer** de **Xideral**, donde se exploraron diversas técnicas y herramientas para el procesamiento distribuido de datos utilizando **Apache Spark**. Los ejercicios abarcan desde la carga y transformación de datos hasta consultas utilizando **PySpark** y **Spark SQL**.
 
-El proyecto incluye ejercicios con datos provenientes de diferentes fuentes, como **Kaggle**, **Project Gutenberg**, y otros datasets públicos. Además, se utilizó **AWS EC2** para ejecutar los trabajos de Spark en un entorno distribuido y **Jupyter Notebook** para documentar y visualizar los análisis.
+El proyecto incluye ejercicios con datos provenientes de diferentes fuentes, como **Kaggle**, **Project Gutenberg**, y otros datasets públicos. Además, se utilizó **AWS EC2** para ejecutar los trabajos de Spark en un contenedor de DOCKER y **Jupyter Notebook** para documentar y visualizar los análisis.
 
 ---
 
