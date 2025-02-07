@@ -1,4 +1,5 @@
 # **PASOS PARA REALIZAR UN CONTEO DE PALABRAS EN UN LIBRO CON APACHE HADOOP**
+![Hadoop_logo svg](https://github.com/user-attachments/assets/7f35eb58-c333-4a81-9b46-6843c3a1e9a6)
 
 ### **Estos pasos se realizaron para el ejercicio en la sesion entonces ya no son necesarios de ejecutar pero se añaden como referencia:**
 
@@ -20,83 +21,92 @@ git clone https://github.com/uracilo/hadoop.git
 sudo docker network create --driver=bridge hadoop
 ```
 
-##### 4. Iniciamos el cluster con 2  esclavos y un maestro. Entraremos usando al contenedor master.
+##### 4.  Entramos al directorio hadoop
 
 ```
 cd hadoop
-sudo ./start-container.sh
 ```
 ***
 ### **A partir de aqui se muestran los pasos que se realizaron para la practica de tarea:**
 
-##### 5. Iniciar hadoop
+##### 5. Iniciar el contenedor e iniciar hadoop
 
 ```
+./start-container.sh
 ./start-hadoop.sh
 ```
 
-##### 6. Un archivo txt de un libro
-
+##### 6. Obtenemos el archivo txt de cada libro
+📚**Libro Alicia:**
 ```
-wget https://raw.githubusercontent.com/uracilo/testdata/master/odisea.txt
+wget https://www.gutenberg.org/cache/epub/28885/pg28885.txt
 ```
-
-##### 7. Crear un directorio
+📚**Libro The war drama of the Eagles:**
+```
+wget https://www.gutenberg.org/cache/epub/75293/pg75293.txt
+```
+##### 7. Creamos un directorio para nuestro input
 
 ```
 mkdir input
 ```
 
-##### 8. Crear un archivo tipo tar.gz
+##### 8. Crear un archivo tipo tar.gz para cada libro
 
+📚Libro Alicia:
 ```
-tar -czvf input/odisea.tar.gz odisea.txt
+tar -czvf input/odisea.tar.gz pg28885.txt
+```
+📚Libro The war drama of the Eagles:
+```
+tar -czvf input/war.tar.gz pg75293.txt
 ```
 
--c: Generar archivo
--z: Comprimir con gzip.
--v: Progreso del proceso.
--f: Especificar nombre del archivo.
-
-
-##### 9. Revisar los tamaños de nuestros archivos
+##### 9. Revisar que esten y revisar los tamaños de nuestros archivos
 
 ```
 ls -flarts input
 ```
-##### 10. Crear y mover  directorio input al DFS de  HADOOP
+##### 10. Crear y mover directorio input al DFS de HADOOP
 
 ```
 hdfs dfs -mkdir -p test
 hdfs dfs -put input
 ```
 
-##### 11. Revisar nuestro input directorio en HADOOP
+##### 11. Revisamos los archivos en nuestro directorio input
 
 ```
 hdfs dfs –ls  input
 ```
 
-##### 12. Leer las primeras lineas de nuestro archivo en HADOOP
-
+##### 12. Leemos las ultimas 20 lineas de nuestros libros
+📚Libro de Alicia:
 ```
-hdfs dfs -cat  input/odisea.tar.gz | zcat | tail -n 20
+hdfs dfs -cat  input/alicia.tar.gz | zcat | tail -n 20
 ```
-
-##### 13. Eliminar el archivo en HADOOP
-
+📚Libro The war drama of the Eagles:
 ```
-hdfs dfs –rm –f /user/rawdata/example/odisea.tar.gz
+hdfs dfs -cat  input/war.tar.gz | zcat | tail -n 20
 ```
 
-##### Plus ejecutar un trabajo en HADOOP
+##### 13. Ejecutamos el trabajo de conteo de palabras de hadoop
 
 ```
 hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/sources/hadoop-mapreduce-examples-2.7.2-sources.jar org.apache.hadoop.examples.WordCount input output
 ```
 
-##### Plus ver el resultado del trabajo en HADOOP
+##### 14. Ejecutamos el comando para ver el resultado del trabajo
 
 ```
 hdfs dfs -cat output/part-r-00000
 ```
+
+#### Resultados obtenidos de cada libro:
+
+📚Libro de Alicia:
+![imagen](https://github.com/user-attachments/assets/f7b7bcb0-1c06-426e-9467-99e3e8e919cd)
+
+📚Libro The war drama of the Eagles:
+![imagen](https://github.com/user-attachments/assets/1be99ec6-011d-4fb4-93f0-8bb733084cf8)
+
