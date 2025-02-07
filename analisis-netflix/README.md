@@ -15,7 +15,6 @@ Algunos ejemplos de las preguntas que se respondieron durante el análisis inclu
 ***
 Tecnologias usadas:
 
-Python 3.x
 Apache Spark
 PySpark
 Jupyter Notebook 
